@@ -8,9 +8,6 @@ const app: Express = express();
 const httpServer = createServer(app);
 
 require("dotenv").config();
-app.get("/", (req, res) => {
-  res.send("Hello");
-});
 
 // JSONミドルウェアの設定
 app.use(express.json());
