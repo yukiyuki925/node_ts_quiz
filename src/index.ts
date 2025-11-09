@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import { createServer } from "http";
 import datasource from "./datasource";
+import authController from "./modules/auth/auth.controller";
 
 const port = 8888;
 const app: Express = express();
@@ -12,6 +13,9 @@ require("dotenv").config();
 // JSONミドルウェアの設定
 app.use(express.json());
 app.use(cors());
+
+// ルートの設定
+app.use("/auth", authController);
 
 datasource
   .initialize()
