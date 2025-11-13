@@ -95,7 +95,7 @@ authController.get("/me", async (req: Request, res: Response) => {
       res.status(200).json(null);
       return;
     }
-    const { password, ...userWithoutPassword } = req.currentUser;
+    const { password_hash, ...userWithoutPassword } = req.currentUser;
     res.status(200).json(userWithoutPassword);
   } catch (error) {
     console.error("ユーザー情報取得エラー:", error);
