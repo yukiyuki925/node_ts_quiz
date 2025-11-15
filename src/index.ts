@@ -3,6 +3,7 @@ import cors from "cors";
 import { createServer } from "http";
 import datasource from "./datasource";
 import authController from "./modules/auth/auth.controller";
+import questionsController from "./modules/questions/questions.controller";
 import setCurrentUser from "./middleware/set-current-user";
 
 const port = 8888;
@@ -18,6 +19,7 @@ app.use(setCurrentUser);
 
 // ルートの設定
 app.use("/auth", authController);
+app.use("/questions", questionsController);
 
 datasource
   .initialize()
